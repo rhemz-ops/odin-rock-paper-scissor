@@ -56,7 +56,11 @@ const playGame = () => {
 
     if(humanScore > computerScore) {
         console.log("YOU WON!");
-    } else {
+    } else if (humanScore === computerScore) {
+        console.log(("IT\'S A DRAW."));
+    }
+    
+    else {
         console.log("YOU LOST.");
     }
 }
