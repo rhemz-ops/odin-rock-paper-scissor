@@ -1,68 +1,66 @@
-// THIS FUNCTION GENERATES RANDOM NUMBER BETWEEN 0 AND 2
+let humanScore = 0;
+let computerScore = 0;
+let roundsPlayed = 0;
+
+
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorBtn = document.querySelector("#scissor");
+const result = document.querySelector("#result");
+
+
 const getComputerChoice = () => {
-    let result =  Math.floor(Math.random() * 3);
+    let result = Math.floor(Math.random() * 3);
     if (result === 0) {
         result = "rock";
     } else if (result === 1) {
         result = "paper";
-    } else {
+    } else if (result === 2) {
         result = "scissor";
     }
+
     return result;
 }
 
+rockBtn.addEventListener('click', () => {
+    getHumanChoice("rock");
+})
 
-// THIS FUNCTION WILL GET THE PLAYERS CHOICE
-const getHumanChoice = () => {
-    return prompt("Pick Rock, Paper, or Scissors? ");
+paperBtn.addEventListener('click', () => {
+    getHumanChoice("paper");
+})
+
+scissorBtn.addEventListener('click', () => {
+    getHumanChoice("scissor");
+})
+
+const getHumanChoice = (choice) => {
+    playRound(choice, getComputerChoice());
 }
 
 
+const playRound = (humanChoice, computerChoice) => {
+    const playerScore = document.querySelector("#playerScore");
+    const comScore = document.querySelector("#comScore");
 
-const playGame = () => {
-
-    // THIS INITIALIZES THE SCORE FOR BOTH PLAYERS
-    let humanScore = 0;
-    let computerScore = 0;
-
-
-    // THIS FUNCTION WILL PLAY ONE ROUND IF CALLED
-    const playRound = (humanChoice, computerChoice) => {
-    
-    humanChoice = getHumanChoice().toLowerCase(); 
-    computerChoice = getComputerChoice();
-
-    if(
-        (humanChoice === "rock" && computerChoice === "scissor") || 
-        (humanChoice === "paper" && computerChoice === "rock") || 
-        (humanChoice === "scissor" && computerChoice === "paper")
+    if (
+        (humanChoice === "rock" && computerChoice === "scissor") 
+        || (humanChoice === "paper" && computerChoice === "rock")
+        || (humanChoice === "scissor" && computerChoice === "paper") 
     ) {
-        console.log(`You WIN! ${humanChoice.toUpperCase()} beats ${computerChoice.toUpperCase()}.`);
+        result.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
         humanScore++;
+        playerScore.textContent = humanScore;
+        roundsPlayed++;
     } else if (humanChoice === computerChoice) {
-        console.log(`It's a tie you both choose ${computerChoice.toUpperCase()}, play again.`);
+        result.textContent = `It\'s a tie. You both choose ${humanChoice}`;
+        roundsPlayed++;
     } else {
-        console.log(`You LOSE! ${computerChoice.toUpperCase()} beats ${humanChoice.toUpperCase()}.`);
+        result.textContent = `You lose. ${humanChoice} beats ${computerChoice}`;
         computerScore++;
-    }
-    console.log(`Current score is:
-        Human: ${humanScore}
-        Computer: ${computerScore}`);
+        comScore.textContent = computerScore;
+        roundsPlayed++
     }
 
-    for (let i = 0; i < 5; i++) {
-        playRound();
-    }
-
-    if(humanScore > computerScore) {
-        console.log("YOU WON!");
-    } else if (humanScore === computerScore) {
-        console.log(("IT\'S A DRAW."));
-    }
-    
-    else {
-        console.log("YOU LOST.");
-    }
 }
 
-playGame();

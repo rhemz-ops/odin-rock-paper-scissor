@@ -4,9 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+
+    <div class="container">
+        <div id="title">
+            <span class="sword">Sword</span> - 
+            <span class="shield">Shield</span> - 
+            <span class="staff">Staff</span>
+        </div>
+        <div id="instructions">
+            <p>Sword beats Staff</p>
+            <p>Shield beats Sword</p>
+            <p>Staff beats Shield</p>
+        </div>
+        <div id="display">
+            <div class="player-container">
+                <div id="playerScore" class="score">0</div>
+                <div class="img-choice" id="player-img">
+                    <img src="./images/staff.jpeg" alt="">
+                </div>
+            </div>
+            <div id="vs">vs</div>
+            <div class="computer-container">
+                <div id="computerScore" class="score">0</div>
+                <div class="img-choice" id="computer-img">
+                    <img src="./images/sword.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="control-result">
+            <div class="buttons">
+                <button id="swordBtn">Sword</button>
+                <button id="shieldBtn">Shield</button>
+                <button id="staffBtn">Staff</button>
+            </div>
+            <div id="text-result">Some text</div>
+        </div>
+
+    </div>
+
+
+
 
     <script src="script.js"></script>
 
