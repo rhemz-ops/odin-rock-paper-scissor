@@ -1,66 +1,59 @@
 let humanScore = 0;
 let computerScore = 0;
-let roundsPlayed = 0;
 
+// REFER TO THE BUTTON ELEMENTS
+const swordBtn = document.querySelector("#swordBtn");
+const shieldBtn = document.querySelector("#shieldBtn");
+const staffBtn = document.querySelector("#staffBtn");
 
-const rockBtn = document.querySelector("#rock");
-const paperBtn = document.querySelector("#paper");
-const scissorBtn = document.querySelector("#scissor");
-const result = document.querySelector("#result");
-
+const playerScoreEL = document.querySelector("#playerScore");
+const computerScoreEl = document.querySelector("#computerScore");
+const textResult = document.querySelector("#text-result");
 
 const getComputerChoice = () => {
-    let result = Math.floor(Math.random() * 3);
-    if (result === 0) {
-        result = "rock";
-    } else if (result === 1) {
-        result = "paper";
-    } else if (result === 2) {
-        result = "scissor";
+    let randomChoice = Math.floor(Math.random() * 3);
+
+    if (randomChoice === 0) {
+        randomChoice = "sword";
+    } else if (randomChoice === 1) {
+        randomChoice = "shield";
+    } else {
+        randomChoice = "staff";
     }
 
-    return result;
+    return randomChoice;
 }
 
-rockBtn.addEventListener('click', () => {
-    getHumanChoice("rock");
-})
-
-paperBtn.addEventListener('click', () => {
-    getHumanChoice("paper");
-})
-
-scissorBtn.addEventListener('click', () => {
-    getHumanChoice("scissor");
-})
-
-const getHumanChoice = (choice) => {
+const getHumanChoice = choice => {
     playRound(choice, getComputerChoice());
 }
 
-
 const playRound = (humanChoice, computerChoice) => {
-    const playerScore = document.querySelector("#playerScore");
-    const comScore = document.querySelector("#comScore");
-
-    if (
-        (humanChoice === "rock" && computerChoice === "scissor") 
-        || (humanChoice === "paper" && computerChoice === "rock")
-        || (humanChoice === "scissor" && computerChoice === "paper") 
+    // PLAYER WINNING CONDITION
+    if ((humanChoice === "sword" && computerChoice === "staff")
+        || (humanChoice === "staff" && computerChoice === "shield")
+        || (humanChoice === "shield" && computerChoice === "sword")
     ) {
-        result.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
         humanScore++;
-        playerScore.textContent = humanScore;
-        roundsPlayed++;
+        playerScoreEL.textContent = humanScore;
+        textResult.textContent = `You WIN! ${humanChoice} beats ${computerChoice}`;
+        console.log(humanChoice + " " + computerChoice);
     } else if (humanChoice === computerChoice) {
-        result.textContent = `It\'s a tie. You both choose ${humanChoice}`;
-        roundsPlayed++;
+        textResult.textContent = `It\'s a tie. You both choose ${computerChoice}`;
     } else {
-        result.textContent = `You lose. ${humanChoice} beats ${computerChoice}`;
         computerScore++;
-        comScore.textContent = computerScore;
-        roundsPlayed++
+        computerScoreEl.textContent = computerScore;
+        textResult.textContent = `Computer Win. ${humanChoice} lost against ${computerChoice}`;
     }
 
+    if (humanScore >= 5 || computerScore >= 5) {
+        if (humanScore > computerScore) {
+            textResult.textContent = "YOU WON";
+        } else {
+            textResult.textContent = "YOU LOST";
+        }
+    } 
 }
+
+
 
