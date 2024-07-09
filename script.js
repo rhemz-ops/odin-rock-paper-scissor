@@ -81,11 +81,11 @@ const playRound = (humanChoice, computerChoice) => {
         textResult.textContent = `You WIN! ${humanChoice} beats ${computerChoice}`;
         console.log(humanChoice + " " + computerChoice);
     } else if (humanChoice === computerChoice) {
-        textResult.textContent = `It\'s a tie. You both choose ${computerChoice}`;
+        textResult.textContent = `It\'s a tie. You both chose the ${computerChoice}`;
     } else {
         computerScore++;
         computerScoreEl.textContent = computerScore;
-        textResult.textContent = `Computer Win. ${humanChoice} lost against ${computerChoice}`;
+        textResult.textContent = `Computer Win. ${humanChoice} is weak against ${computerChoice}`;
     }
 
     // CHANGES TEXT COLOR DEPENDING ON THE SITUATION OF THE GAME
