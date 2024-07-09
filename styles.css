@@ -23,14 +23,10 @@
     margin-bottom: 50px;
 }
 
-#instructions {
-
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-#instructions p {
-    margin: 4px;
+.title-weapon {
+    font-family: monospace;
+    font-weight: 900;
+    color: #E68369;
 }
 
 #display {
@@ -46,7 +42,9 @@
 #display .name {
     text-align: center;
     margin-top: 20px;
-    font-size: 36px;
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 6px;
 }
 
 #display #vs, #display .score {

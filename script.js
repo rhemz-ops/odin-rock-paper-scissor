@@ -6,6 +6,7 @@ const swordBtn = document.querySelector("#swordBtn");
 const shieldBtn = document.querySelector("#shieldBtn");
 const staffBtn = document.querySelector("#staffBtn");
 const restartBtn = document.querySelector("#restart");
+const weaponBtn = document.querySelectorAll(".weaponBtn");
 
 const playerScoreEL = document.querySelector("#playerScore");
 const computerScoreEl = document.querySelector("#computerScore");
@@ -13,11 +14,16 @@ const textResult = document.querySelector("#text-result");
 const playerWeaponImg = document.querySelector("#player-weapon-image");
 const computerWeaponImg = document.querySelector("#computer-weapon-image");
 
+
+//THIS WILL RESTART THE GAME AND RE-ENABLED THE BUTTONS FOR PLAYING
 const restartGame = () => {
     humanScore = 0;
     computerScore = 0;
     playerScoreEL.textContent = humanScore;
     computerScoreEl.textContent = computerScore;
+    weaponBtn.forEach(btn => {
+        btn.disabled = false;
+    })
     textResult.textContent = `Choose a weapon!`;
     playerScoreEL.style.color = "#FBF6E2";
     computerScoreEl.style.color = "#FBF6E2";
@@ -79,6 +85,7 @@ const playRound = (humanChoice, computerChoice) => {
         textResult.textContent = `Computer Win. ${humanChoice} lost against ${computerChoice}`;
     }
 
+    // CHANGES TEXT COLOR DEPENDING ON THE SITUATION OF THE GAME
     if (humanScore > computerScore) {
         playerScoreEL.style.color = "lime";
         computerScoreEl.style.color = "red";
@@ -91,6 +98,7 @@ const playRound = (humanChoice, computerChoice) => {
     }
 
     if (humanScore >= 5 || computerScore >= 5) {
+
         if (humanScore > computerScore) {
             textResult.innerHTML = `<span class="winColor">Good job you won!</span> The final score is 
             <br>PLAYER:${humanScore} 
@@ -100,11 +108,16 @@ const playRound = (humanChoice, computerChoice) => {
             <br>PLAYER: ${humanScore} 
             COMPUTER: ${computerScore}`;
         }
+
+        weaponBtn.forEach(button => {
+            button.disabled = true; 
+        })
         restartBtn.style.display = "inline";
         restartBtn.addEventListener("click", () => {
             restartGame();
             restartBtn.style.display = "none";
         })
+
     } 
 }
 
