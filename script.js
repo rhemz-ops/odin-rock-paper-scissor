@@ -69,9 +69,12 @@ const getHumanChoice = choice => {
 
 const playRound = (humanChoice, computerChoice) => {
     // PLAYER WINNING CONDITION
-    if ((humanChoice === "sword" && computerChoice === "staff")
-        || (humanChoice === "staff" && computerChoice === "shield")
-        || (humanChoice === "shield" && computerChoice === "sword")
+    humanChoice = humanChoice.toUpperCase();
+    computerChoice = computerChoice.toUpperCase();   
+
+    if ((humanChoice === "SWORD" && computerChoice === "STAFF")
+        || (humanChoice === "STAFF" && computerChoice === "SHIELD")
+        || (humanChoice === "SHIELD" && computerChoice === "SWORD")
     ) {
         humanScore++;
         playerScoreEL.textContent = humanScore;
