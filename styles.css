@@ -5,11 +5,14 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+
+
 .container {
     min-height: 100vh;
     min-width: 100vw;
-    background-color: #444;
-    color: whitesmoke;
+    background-color: #131842;
+    color: #FBF6E2;
+    text-align: center;
 }
 
 #title {
@@ -17,21 +20,22 @@
     text-transform: uppercase;
     font-size: 56px;
     padding: 20px;
+    margin-bottom: 50px;
 }
 
 #instructions {
 
-    text-align: center;
-    padding-bottom: 20px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 #instructions p {
-    padding: 8px;
+    margin: 4px;
 }
 
 #display {
     margin: 0 auto;
-    padding: 24px;
+    padding: 24px 0;
     max-width: 900px;
     display: flex;
     justify-content: space-between;
@@ -39,9 +43,15 @@
     flex-wrap: wrap;
 }
 
+#display .name {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 36px;
+}
+
 #display #vs, #display .score {
     font-size: 46px;
-    color: orange;
+    color: #FBF6E2;
 }
 
 #display .score {
@@ -55,8 +65,10 @@
 }
 
 #display .img-choice {
+    background-color: #E68369;
     height: 300px;
     width: 300px;
+    border: 3px solid #FBF6E2;
     border-radius: 12px;
     overflow: hidden;
 }
@@ -64,32 +76,64 @@
 .img-choice img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit:fill;
 }
 
 .control-result {
     max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 24px auto 0;
+    padding: 12px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    border-radius: 12px;
+    background-color: #ECCEAE;
 }
 
 #text-result {
     flex: 1;
+    color: #131842;
+}
+
+#text-result p {
+    margin: 6px auto;
 }
 
 .buttons {
-    flex: 2;
+    flex: 1;
 }
 
 .buttons button {
-    padding: 8px 24px;
+    padding: 10px 24px;
     cursor: pointer;
-    background-color: rgb(50, 176, 235);
+    background-color: #E68369;
     border: none;
     border-radius: 5px;
     text-transform: uppercase;
-    font-weight: 600;
-    color: #444;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FBF6E2;
+}
+
+.winColor {
+    color: green;
+}
+
+.loseColor {
+    color: red;
+}
+
+#restart {
+    display: none;
+    padding: 10px 44px;
+    cursor: pointer;
+    background-color: #E68369;
+    border: 2px solid #FBF6E2;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FBF6E2;
+    margin-top: 20px;
 }

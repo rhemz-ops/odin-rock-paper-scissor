@@ -14,34 +14,36 @@
             <span class="shield">Shield</span> - 
             <span class="staff">Staff</span>
         </div>
-        <div id="instructions">
-            <p>Sword beats Staff</p>
-            <p>Shield beats Sword</p>
-            <p>Staff beats Shield</p>
-        </div>
         <div id="display">
             <div class="player-container">
                 <div id="playerScore" class="score">0</div>
                 <div class="img-choice" id="player-img">
-                    <img src="./images/staff.jpeg" alt="">
+                    <img src="./images/sword.png" alt="" id="player-weapon-image">
                 </div>
+                <div class="name">PLAYER</div>
             </div>
             <div id="vs">vs</div>
             <div class="computer-container">
                 <div id="computerScore" class="score">0</div>
                 <div class="img-choice" id="computer-img">
-                    <img src="./images/sword.jpeg" alt="">
+                    <img src="./images/sword.png" alt="" id="computer-weapon-image">
                 </div>
+                <div class="name">COMPUTER</div>
             </div>
         </div>
         <div class="control-result">
             <div class="buttons">
-                <button id="swordBtn">Sword</button>
-                <button id="shieldBtn">Shield</button>
-                <button id="staffBtn">Staff</button>
+                <button id="swordBtn" class="weaponBtn">Sword</button>
+                <button id="shieldBtn" class="weaponBtn">Shield</button>
+                <button id="staffBtn" class="weaponBtn">Staff</button>
             </div>
-            <div id="text-result">Some text</div>
+            <div id="text-result">
+                <p>Sword beats Staff (blade cuts through spells)</p>
+                <p>Shield beats Sword (defense withstands blade)</p>
+                <p>Staff beats Shield (spells bypass defense)</p>
+            </div>
         </div>
+        <button id="restart">RESTART</button>
 
     </div>
 
